@@ -1,0 +1,122 @@
+import { supabase, ContactMessage, Project, Skill } from './supabase'
+
+// Contact Messages API
+export const contactAPI = {
+  // Create new contact message
+  async create(data: Omit<ContactMessage, 'id' | 'created_at' | 'status'>) {
+    const { data: result, error } = await supabase
+      .from('contact_messages')
+      .insert([{ ...data, status: 'new' }])
+      .select()
+    
+    if (error) throw error
+    return result[0]
+  },
+
+  // Get all contact messages (admin)
+  async getAll() {
+    const { data, error } = await supabase
+      .from('contact_messages')
+      .select('*')
+      .order('created_at', { ascending: false })
+    
+    if (error) throw error
+    return data
+  },
+
+  // Update message status
+  async updateStatus(id: number, status: 'new' | 'read' | 'replied') {
+    const { data, error } = await supabase
+      .from('contact_messages')
+      .update({ status })
+      .eq('id', id)
+      .select()
+    
+    if (error) throw error
+    return data[0]
+  },
+
+  // Delete message
+  async delete(id: number) {
+    const { error } = await supabase
+      .from('contact_messages')
+      .delete()
+      .eq('id', id)
+    
+    if (error) throw error
+  }
+}
+
+// Projects API
+export const projectsAPI = {
+  // Get all projects
+  async getAll() {
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .order('created_at', { ascending: false })
+    
+    if (error) throw error
+    return data
+  },
+
+  // Get featured projects
+  async getFeatured() {
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('featured', true)
+      .order('created_at', { ascending: false })
+    
+    if (error) throw error
+    return data
+  },
+
+  // Create project
+  async create(data: Omit<Project, 'id' | 'created_at'>) {
+    const { data: result, error } = await supabase
+      .from('projects')
+      .insert([data])
+      .select()
+    
+    if (error) throw error
+    return result[0]
+  },
+
+  // Update project
+  async update(id: number, data: Partial<Project>) {
+    const { data: result, error } = await supabase
+      .from('projects')
+      .update(data)
+      .eq('id', id)
+      .select()
+    
+    if (error) throw error
+    return result[0]
+  }
+}
+
+// Skills API
+export const skillsAPI = {
+  // Get all skills
+  async getAll() {
+    const { data, error } = await supabase
+      .from('skills')
+      .select('*')
+      .order('category', { ascending: true })
+    
+    if (error) throw error
+    return data
+  },
+
+  // Create skill
+  async create(data: Omit<Skill, 'id'>) {
+    const { data: result, error } = await supabase
+      .from('skills')
+      .insert([data])
+      .select()
+    
+    if (error) throw error
+    return result[0]
+  }
+}

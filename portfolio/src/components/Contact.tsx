@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { contactAPI } from '@/lib/api'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,12 +25,11 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
-      // Here you would normally send the data to your backend
-      // For now, we'll just simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await contactAPI.create(formData)
       setSubmitMessage('Thank you for your message! I&apos;ll get back to you soon.')
       setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch {
+    } catch (error) {
+      console.error('Error sending message:', error)
       setSubmitMessage('Sorry, there was an error sending your message. Please try again.')
     } finally {
       setIsSubmitting(false)
