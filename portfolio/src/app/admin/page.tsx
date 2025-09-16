@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { contactAPI, ContactMessage } from '@/lib/api'
 
 export default function AdminPanel() {
@@ -179,7 +179,7 @@ export default function AdminPanel() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <select
                         value={message.status || 'new'}
-                        onChange={(e) => updateMessageStatus(message.id!, e.target.value as any)}
+                        onChange={(e) => updateMessageStatus(message.id!, e.target.value as 'new' | 'read' | 'replied')}
                         className={`text-xs px-3 py-1 rounded-full border ${
                           message.status === 'new' ? 'bg-green-100 text-green-800 border-green-200' :
                           message.status === 'read' ? 'bg-yellow-100 text-yellow-800 border-yellow-200' :
