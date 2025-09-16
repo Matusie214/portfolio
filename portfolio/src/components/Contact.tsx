@@ -27,9 +27,9 @@ export default function Contact() {
       // Here you would normally send the data to your backend
       // For now, we'll just simulate a successful submission
       await new Promise(resolve => setTimeout(resolve, 1000))
-      setSubmitMessage('Thank you for your message! I\'ll get back to you soon.')
+      setSubmitMessage('Thank you for your message! I&apos;ll get back to you soon.')
       setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
+    } catch {
       setSubmitMessage('Sorry, there was an error sending your message. Please try again.')
     } finally {
       setIsSubmitting(false)
@@ -44,14 +44,14 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities and interesting projects
+            I&apos;m always open to discussing new opportunities and interesting projects
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Let's Connect
+              Let&apos;s Connect
             </h3>
             <div className="space-y-4">
               <div className="flex items-center">

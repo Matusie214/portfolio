@@ -7,7 +7,7 @@ export default function About() {
             About Me
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I'm a passionate full-stack developer with experience in modern web technologies
+            I&apos;m a passionate full-stack developer with experience in modern web technologies
           </p>
         </div>
         
@@ -24,7 +24,7 @@ export default function About() {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               I specialize in building modern web applications using React, Next.js, and Python. 
-              I'm passionate about creating user-friendly interfaces and robust backend systems.
+              I&apos;m passionate about creating user-friendly interfaces and robust backend systems.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               With experience in both frontend and backend development, I enjoy working on 
