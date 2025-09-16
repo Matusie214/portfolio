@@ -7,6 +7,11 @@ export type { ContactMessage, Project, Skill } from './supabase'
 export const contactAPI = {
   // Create new contact message
   async create(data: Omit<ContactMessage, 'id' | 'created_at' | 'status'>) {
+    if (!supabase) {
+      console.warn('Supabase not configured, simulating message save')
+      return { id: 1, ...data, status: 'new', created_at: new Date().toISOString() }
+    }
+    
     const { data: result, error } = await supabase
       .from('contact_messages')
       .insert([{ ...data, status: 'new' }])
@@ -18,6 +23,11 @@ export const contactAPI = {
 
   // Get all contact messages (admin)
   async getAll() {
+    if (!supabase) {
+      console.warn('Supabase not configured, returning empty array')
+      return []
+    }
+    
     const { data, error } = await supabase
       .from('contact_messages')
       .select('*')
