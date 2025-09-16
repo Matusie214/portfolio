@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Next.js
+portfolio/.next/
+portfolio/out/
+portfolio/build/
+
+# Python
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+backend/env/
+backend/.env
+backend/portfolio.db
+
+# IDE
+.vscode/
+.idea/
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
