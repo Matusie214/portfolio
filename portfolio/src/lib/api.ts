@@ -1,5 +1,8 @@
 import { supabase, ContactMessage, Project, Skill } from './supabase'
 
+// Re-export types from supabase
+export type { ContactMessage, Project, Skill } from './supabase'
+
 // Contact Messages API
 export const contactAPI = {
   // Create new contact message
