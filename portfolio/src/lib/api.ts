@@ -39,6 +39,11 @@ export const contactAPI = {
 
   // Update message status
   async updateStatus(id: number, status: 'new' | 'read' | 'replied') {
+    if (!supabase) {
+      console.warn('Supabase not configured')
+      return null
+    }
+    
     const { data, error } = await supabase
       .from('contact_messages')
       .update({ status })
@@ -51,6 +56,11 @@ export const contactAPI = {
 
   // Delete message
   async delete(id: number) {
+    if (!supabase) {
+      console.warn('Supabase not configured')
+      return
+    }
+    
     const { error } = await supabase
       .from('contact_messages')
       .delete()
@@ -64,6 +74,8 @@ export const contactAPI = {
 export const projectsAPI = {
   // Get all projects
   async getAll() {
+    if (!supabase) return []
+    
     const { data, error } = await supabase
       .from('projects')
       .select('*')
@@ -75,6 +87,8 @@ export const projectsAPI = {
 
   // Get featured projects
   async getFeatured() {
+    if (!supabase) return []
+    
     const { data, error } = await supabase
       .from('projects')
       .select('*')
@@ -87,6 +101,8 @@ export const projectsAPI = {
 
   // Create project
   async create(data: Omit<Project, 'id' | 'created_at'>) {
+    if (!supabase) return null
+    
     const { data: result, error } = await supabase
       .from('projects')
       .insert([data])
@@ -98,6 +114,8 @@ export const projectsAPI = {
 
   // Update project
   async update(id: number, data: Partial<Project>) {
+    if (!supabase) return null
+    
     const { data: result, error } = await supabase
       .from('projects')
       .update(data)
@@ -113,6 +131,8 @@ export const projectsAPI = {
 export const skillsAPI = {
   // Get all skills
   async getAll() {
+    if (!supabase) return []
+    
     const { data, error } = await supabase
       .from('skills')
       .select('*')
@@ -124,6 +144,8 @@ export const skillsAPI = {
 
   // Create skill
   async create(data: Omit<Skill, 'id'>) {
+    if (!supabase) return null
+    
     const { data: result, error } = await supabase
       .from('skills')
       .insert([data])
