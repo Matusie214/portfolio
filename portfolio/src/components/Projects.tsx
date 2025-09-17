@@ -22,32 +22,32 @@ export default function Projects() {
       {
         id: 1,
         title: "Vue E-commerce Store",
-        description: "Modern e-commerce application built with Vue.js 3, featuring product catalog, shopping cart, user authentication, and secure checkout process.",
-        short_description: "Full-featured online store",
+        description: "Advanced e-commerce application with smart inventory management, product galleries, stock notifications, and real-time Supabase integration. Features conditional purchase flows and comprehensive admin panel.",
+        short_description: "Advanced inventory management platform",
         demo_url: "https://vue-ecommerce-matusiak.netlify.app",
         github_url: "https://github.com/Matusie214/vue-ecommerce",
-        tech_stack: "Vue 3, TypeScript, Pinia, Tailwind CSS, Vite",
+        tech_stack: "Vue 3, TypeScript, Supabase, Pinia, Tailwind CSS, PostgreSQL",
         featured: true
       },
       {
         id: 2,
         title: "Vue Task Manager",
-        description: "Collaborative task management application with drag & drop functionality, real-time updates, and team collaboration features.",
-        short_description: "Team productivity platform",
+        description: "Collaborative task management application with drag & drop functionality, real-time Socket.io updates, team collaboration features, project organization, and comprehensive progress tracking.",
+        short_description: "Real-time team productivity platform",
         demo_url: "https://vue-taskmanager-matusiak.netlify.app",
         github_url: "https://github.com/Matusie214/vue-task-manager",
-        tech_stack: "Vue 3, TypeScript, Socket.io, Vue Draggable, Pinia",
+        tech_stack: "Vue 3, TypeScript, Socket.io, Vue Draggable, Pinia, Tailwind CSS",
         featured: true
       },
       {
         id: 3,
         title: "Vue Weather Dashboard",
-        description: "Interactive weather application with location-based forecasts, interactive charts, weather maps, and severe weather alerts.",
-        short_description: "Advanced weather tracking",
+        description: "Interactive weather application with location-based forecasts, Chart.js visualizations, weather maps, radar imagery, severe weather alerts, and comprehensive meteorological data display.",
+        short_description: "Advanced weather tracking with charts",
         demo_url: "https://vue-weather-matusiak.netlify.app",
         github_url: "https://github.com/Matusie214/vue-weather-dashboard",
-        tech_stack: "Vue 3, TypeScript, Chart.js, OpenWeatherMap API, Tailwind CSS",
-        featured: false
+        tech_stack: "Vue 3, TypeScript, Chart.js, OpenWeatherMap API, Geolocation, Tailwind CSS",
+        featured: true
       }
     ]
     setProjects(sampleProjects)
